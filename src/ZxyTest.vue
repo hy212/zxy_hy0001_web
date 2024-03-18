@@ -10,6 +10,7 @@
       <input v-model.trim="value" />
       <button @click="addRecords" :disabled="!value" style="margin-left: 5px;">新增数据</button>
     </div>
+    <button @click="toWxPage">查看微信sdk</button>
   </div>
 
 </template>
@@ -105,6 +106,9 @@ export default {
       } catch (e) {
         console.log(e.toString());
       }
+    },
+    toWxPage() {
+      this.$router.push({path: '/wx'});
     },
   },
 }
