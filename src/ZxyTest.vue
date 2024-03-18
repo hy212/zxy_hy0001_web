@@ -61,13 +61,13 @@ export default {
     // 获取记录列表
     await this.getRecordList();
     // 调用云函数
-    this.baas.invoke('func_test').then(res => {
-      console.log('云函数返回结果', res.data);
-    })
-    this.realTimeDatabase();
+    // this.baas.invoke('func_test').then(res => {
+    //   console.log('云函数返回结果', res.data);
+    // })
+    // this.realTimeDatabase();
   },
   unmounted() {
-    this.myTableObject.unsubscribe(); // 取消订阅上述示例中数据表的新增数据动作
+    // this.myTableObject.unsubscribe(); // 取消订阅上述示例中数据表的新增数据动作
   },
   methods: {
     /** 获取数据列表 */
