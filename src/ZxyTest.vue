@@ -34,6 +34,26 @@ export default {
     // sdk初始化
     this.baas = require('minapp-sdk');
     this.baas.init('84c4ee23bba6240808a2', {});
+    // const res = await this.baas.auth.getRedirectResult();
+    // console.log('授权结果-----', res);
+    // 设置 createUser 参数为 false，避免直接创建一个账户
+    // console.log(this.baas);
+    // this.baas.auth.loginWithThirdParty('oauth-wechat-web', 'http://localhost:8080/zxyAuth').then(user => {
+    //   // 已经有用户记录，不是第一次登录，进入正常业务流程。
+    //   console.log('登录成功--', user);
+    // }, err => {
+    //   console.log(err);
+    //   // 登录失败，没有账户记录。
+    //   // 这时候可以让用户先通过 wx.auth.register() 注册一个账户，或者 wx.auth.login() 登录一个已有账户，再使用 linkWechat 进行绑定，这里以登录账户为例
+    //   // if (err.code === 404) {
+    //   //   this.baas.auth.login({email: 'ifanrx@ifanr.com', password: 'ifanrx123'}).then(user => {
+    //   //     user.linkWechat().then(res => {
+    //   //       console.log(res.statusCode)
+    //   //       // 关联成功，下次可以通过 wx.BaaS.auth.loginWithWechat 登录了
+    //   //     })
+    //   //   })
+    //   // }
+    // })
     // 用户登录
     await this.baas.auth.login({username: 'huying', password: 'huying'}).then(user => {
       console.log(111, user)
@@ -44,7 +64,7 @@ export default {
     this.baas.invoke('func_test').then(res => {
       console.log('云函数返回结果', res.data);
     })
-    // this.realTimeDatabase();
+    this.realTimeDatabase();
   },
   unmounted() {
     this.myTableObject.unsubscribe(); // 取消订阅上述示例中数据表的新增数据动作
